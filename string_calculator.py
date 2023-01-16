@@ -1,3 +1,5 @@
+import re
+
 class StringCalculator():
     def add(self, string: str) -> int:
         if string == "":
@@ -5,6 +7,6 @@ class StringCalculator():
         elif len(string) == 1:
             return int(string)
         else:
-            numbers_list = string.split(",")
+            numbers_list = re.split('[, \n]', string)
             numbers_list = [int(num) for num in numbers_list]
             return sum(numbers_list)

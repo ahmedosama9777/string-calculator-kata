@@ -17,3 +17,7 @@ class TestStringCalculator(TestCase):
     
     def test_more_than_two_numbers(self):
         self.assertEqual(self.calculator.add("1,2,3"), 6)
+
+    def test_new_line_as_separator(self):
+        self.assertEqual(self.calculator.add("1,2\n3"), 6)
+        
