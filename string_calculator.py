@@ -1,3 +1,6 @@
 class StringCalculator():
     def add(self, string: str) -> int:
-        return 0
+        if string == "":
+            return 0
+        else:
+            return int(string)
