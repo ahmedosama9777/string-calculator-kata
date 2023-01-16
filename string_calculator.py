@@ -5,5 +5,6 @@ class StringCalculator():
         elif len(string) == 1:
             return int(string)
         else:
-            number1, number2 = string.split(",")
-            return int(number1) + int(number2)
+            numbers_list = string.split(",")
+            numbers_list = [int(num) for num in numbers_list]
+            return sum(numbers_list)

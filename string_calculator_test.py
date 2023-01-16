@@ -14,3 +14,6 @@ class TestStringCalculator(TestCase):
     
     def test_two_numbers_separated_by_comma(self):
         self.assertEqual(self.calculator.add("1,2"), 3)
+    
+    def test_more_than_two_numbers(self):
+        self.assertEqual(self.calculator.add("1,2,3"), 6)
