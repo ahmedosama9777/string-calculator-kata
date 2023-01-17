@@ -31,4 +31,10 @@ class TestStringCalculator(TestCase):
         )
 
     def test_handle_different_delimiters(self):
+        self.assertEqual(self.calculator.add("//;\n1;3"), 4)
         self.assertEqual(self.calculator.add("//|\n1|2|3"), 6)
+        self.assertEqual(self.calculator.add("//sep\n2sep5"), 7)
+
+    def test_invalid_delimeter(self):
+        with self.assertRaises(ValueError) as e:
+            self.calculator.add("//|\n1|2,3")

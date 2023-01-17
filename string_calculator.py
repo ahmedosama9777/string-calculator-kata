@@ -21,9 +21,17 @@ class StringCalculator:
         if not string[-1].isnumeric():
             raise ValueError("Separators are not allowed at the end of string")
 
-        string = re.sub(f"[// {self.DELIMETER} , \n]", "", string)
+        if self.DELIMETER:
+            string = re.sub(f"[// {self.DELIMETER} \n]", "", string)
+            for i in range(len(string)):
+                if not string[i].isnumeric():
+                    raise ValueError(
+                        f"{self.DELIMETER} expected. but {string[i]} found at postion {i}"
+                    )
+        else:
+            string = re.sub("[, \n]", "", string)
+
         numbers_list = list(string)
 
         numbers_list = [int(num) for num in numbers_list]
-
         return numbers_list
