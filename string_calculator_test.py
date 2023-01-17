@@ -29,3 +29,6 @@ class TestStringCalculator(TestCase):
         self.assertEqual(
             str(e.exception), "Separators are not allowed at the end of string"
         )
+
+    def test_handle_different_delimiters(self):
+        self.assertEqual(self.calculator.add("//|\n1|2|3"), 6)
